@@ -1,7 +1,6 @@
 # @cfware/p-mutex
 
 [![Travis CI][travis-image]][travis-url]
-[![Coverage Status][coverage-image]][coverage-url]
 [![Greenkeeper badge](https://badges.greenkeeper.io/cfware/p-mutex.svg)](https://greenkeeper.io/)
 [![NPM Version][npm-image]][npm-url]
 [![NPM Downloads][downloads-image]][downloads-url]
@@ -53,8 +52,6 @@ npm test
 [npm-url]: https://npmjs.org/package/@cfware/p-mutex
 [travis-image]: https://travis-ci.org/cfware/p-mutex.svg?branch=master
 [travis-url]: https://travis-ci.org/cfware/p-mutex
-[coverage-image]: https://coveralls.io/repos/github/cfware/p-mutex/badge.svg
-[coverage-url]: https://coveralls.io/github/cfware/p-mutex
 [downloads-image]: https://img.shields.io/npm/dm/@cfware/p-mutex.svg
 [downloads-url]: https://npmjs.org/package/@cfware/p-mutex
 [license-image]: https://img.shields.io/github/license/cfware/p-mutex.svg
