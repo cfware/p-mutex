@@ -1,0 +1,51 @@
+{
+  "name": "@cfware/p-mutex",
+  "version": "0.1.0",
+  "description": "Promise based mutex",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint *.js test/*.js && nyc mocha"
+  },
+  "engines": {
+    "nodejs": ">=8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cfware/p-mutex.git"
+  },
+  "author": "Corey Farrell",
+  "license": "MIT",
+  "keywords": [
+    "promise",
+    "lock",
+    "mutex",
+    "async",
+    "sequence"
+  ],
+  "files": [
+    "*.js",
+    ".eslintrc.json",
+    "test"
+  ],
+  "bugs": {
+    "url": "https://github.com/cfware/p-mutex/issues"
+  },
+  "homepage": "https://github.com/cfware/p-mutex#readme",
+  "devDependencies": {
+    "babel-eslint": "^8.0.3",
+    "eslint": "^4.12.1",
+    "mocha": "^4.0.1",
+    "nyc": "^11.4.0"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": true,
+    "lines": 100,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100,
+    "include": [
+      "index.js"
+    ]
+  }
+}
