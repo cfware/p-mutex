@@ -6,7 +6,7 @@
 [![NPM Downloads][downloads-image]][downloads-url]
 [![MIT][license-image]](LICENSE)
 
-CFWare queue_log mysql writer
+Promise based mutex
 
 ### Install @cfware/p-mutex
 
@@ -41,7 +41,7 @@ called or the `mutex.lock()` will never resolve again.
 
 ## Running tests
 
-Tests are provided by eslint and mocha.
+Tests are provided by eslint and mocha with coverage checking by nyc.
 
 ```sh
 npm install
