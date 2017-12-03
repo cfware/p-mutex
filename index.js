@@ -17,7 +17,7 @@ class PMutexUser {
 
 	/* This is for use by PMutex.lock only. */
 	[kAcquire]() {
-		if (this._owner[kWaiting][0] == this) {
+		if (this._owner[kWaiting][0] === this) {
 			this._resolve(this);
 		}
 
@@ -31,10 +31,10 @@ class PMutexUser {
 
 		this._owner = null;
 		queue.shift();
-		if (queue.length) {
-			queue[0][kAcquire]();
-		} else {
+		if (queue.length === 0) {
 			owner.emit('drain');
+		} else {
+			queue[0][kAcquire]();
 		}
 	}
 }
