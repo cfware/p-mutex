@@ -1,21 +1,21 @@
 'use strict';
 
 const assert = require('assert');
-const {describe, beforeEach, it} = require('mocha');
+const mocha = require('mocha');
 const PMutex = require('..');
 
-describe('@cfware/p-mutex', () => {
+mocha.describe('@cfware/p-mutex', () => {
 	let pMutex;
 
-	beforeEach('create pMutex', () => {
+	mocha.beforeEach('create pMutex', () => {
 		pMutex = new PMutex();
 	});
 
-	it('pMutex is an object', () => assert.equal(typeof pMutex, 'object'));
-	it('pMutex.lock is a function', () => assert.equal(typeof pMutex.lock, 'function'));
-	it('pMutex.lock resolves', () => pMutex.lock());
+	mocha.it('pMutex is an object', () => assert.equal(typeof pMutex, 'object'));
+	mocha.it('pMutex.lock is a function', () => assert.equal(typeof pMutex.lock, 'function'));
+	mocha.it('pMutex.lock resolves', () => pMutex.lock());
 
-	it('single request to lock', () => {
+	mocha.it('single request to lock', () => {
 		let drained = 0;
 
 		pMutex.on('drain', () => {
@@ -32,7 +32,7 @@ describe('@cfware/p-mutex', () => {
 		});
 	});
 
-	it('two request happen in order', done => {
+	mocha.it('two request happen in order', done => {
 		let drained = 0;
 		let eventNum = 0;
 
