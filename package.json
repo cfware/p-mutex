@@ -4,10 +4,10 @@
 	"description": "Promise based mutex",
 	"main": "index.js",
 	"scripts": {
-		"test": "xo && nyc mocha"
+		"test": "xo && nyc ava"
 	},
 	"engines": {
-		"nodejs": ">=4"
+		"nodejs": ">=6"
 	},
 	"repository": {
 		"type": "git",
@@ -23,18 +23,16 @@
 		"sequence"
 	],
 	"files": [
-		"*.js",
-		"test"
+		"*.js"
 	],
 	"bugs": {
 		"url": "https://github.com/cfware/p-mutex/issues"
 	},
 	"homepage": "https://github.com/cfware/p-mutex#readme",
 	"devDependencies": {
-		"eslint": "^4.12.1",
-		"mocha": "^5.0.0",
-		"nyc": "^11.4.0",
-		"xo": "^0.18.2"
+		"ava": "^1.0.0-beta.4",
+		"nyc": "^11.8.0",
+		"xo": "^0.21.1"
 	},
 	"nyc": {
 		"check-coverage": true,
