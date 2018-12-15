@@ -11,7 +11,7 @@ test('pMutex is an object', t => t.is(typeof t.context.pMutex, 'object'));
 
 test('pMutex.lock is a function', t => t.is(typeof t.context.pMutex.lock, 'function'));
 test('pMutex.lock resolves', async t => {
-	await t.notThrows(t.context.pMutex.lock());
+	await t.notThrowsAsync(t.context.pMutex.lock());
 });
 
 test('single request to lock', async t => {
@@ -72,7 +72,7 @@ test('two request happen in order', async t => {
 		});
 	});
 
-	await t.notThrows(firstLock);
-	await t.notThrows(secondLock);
-	await t.notThrows(finish);
+	await t.notThrowsAsync(firstLock);
+	await t.notThrowsAsync(secondLock);
+	await t.notThrowsAsync(finish);
 });
