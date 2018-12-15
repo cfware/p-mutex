@@ -30,7 +30,7 @@
 	},
 	"homepage": "https://github.com/cfware/p-mutex#readme",
 	"devDependencies": {
-		"ava": "^1.0.0-beta.4",
+		"ava": "^1.0.1",
 		"nyc": "^12.0.1",
 		"xo": "^0.21.1"
 	},
