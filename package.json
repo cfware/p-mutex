@@ -7,7 +7,7 @@
 		"test": "xo && nyc ava"
 	},
 	"engines": {
-		"nodejs": ">=6"
+		"nodejs": ">=12"
 	},
 	"repository": {
 		"type": "git",
@@ -23,26 +23,34 @@
 		"sequence"
 	],
 	"files": [
-		"*.js"
+		"*.js",
+		"!nyc.config.js"
 	],
 	"bugs": {
 		"url": "https://github.com/cfware/p-mutex/issues"
 	},
 	"homepage": "https://github.com/cfware/p-mutex#readme",
 	"devDependencies": {
-		"ava": "^1.0.1",
-		"nyc": "^14.0.0",
+		"@cfware/nyc": "^0.5.0",
+		"ava": "^2.0.0",
+		"babel-eslint": "^10.0.1",
+		"esm": "^3.2.25",
+		"nyc": "^14.1.1",
 		"xo": "^0.24.0"
 	},
-	"nyc": {
-		"check-coverage": true,
-		"per-file": true,
-		"lines": 100,
-		"statements": 100,
-		"functions": 100,
-		"branches": 100,
-		"include": [
-			"index.js"
-		]
+	"xo": {
+		"parser": "babel-eslint",
+		"env": {
+			"es6": true
+		},
+		"rules": {
+			"lines-between-class-members": [
+				"error",
+				"always",
+				{
+					"exceptAfterSingleLine": true
+				}
+			]
+		}
 	}
 }

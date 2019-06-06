@@ -1,56 +1,66 @@
-'use strict';
+import EventEmitter from 'events';
 
-const events = require('events');
-
-const kWaiting = Symbol('PMutex.Waiting');
+const kIsFirst = Symbol('PMutex.IsFirst');
+const kRelease = Symbol('PMutex.Release');
 const kAcquire = Symbol('PMutexUser.Acquire');
 
 class PMutexUser {
+	#owner;
+	#resolve;
+	#reject;
+
+	#wait = new Promise((resolve, reject) => {
+		this.#resolve = resolve;
+		this.#reject = reject;
+	});
+
 	constructor(owner) {
-		this._owner = owner;
-		this._wait = new Promise((resolve, reject) => {
-			this._resolve = resolve;
-			this._reject = reject;
-		});
-		owner[kWaiting].push(this);
+		this.#owner = owner;
 	}
 
 	/* This is for use by PMutex.lock only. */
 	[kAcquire]() {
-		if (this._owner[kWaiting][0] === this) {
-			this._resolve(this);
+		if (this.#owner[kIsFirst](this)) {
+			this.#resolve(this);
 		}
 
-		return this._wait;
+		return this.#wait;
 	}
 
 	/* Public method to be called when a user is done with the mutex. */
 	release() {
-		const owner = this._owner;
-		const queue = owner[kWaiting];
-
-		this._owner = null;
-		queue.shift();
-		if (queue.length === 0) {
-			owner.emit('drain');
-		} else {
-			queue[0][kAcquire]();
+		if (!this.#owner) {
+			return;
 		}
+
+		const owner = this.#owner;
+		this.#owner = null;
+		owner[kRelease]();
 	}
 }
 
-class PMutex extends events {
-	constructor() {
-		super();
+class PMutex extends EventEmitter {
+	#kWaiting = [];
 
-		this[kWaiting] = [];
+	[kIsFirst](usr) {
+		return usr === this.#kWaiting[0];
+	}
+
+	[kRelease]() {
+		this.#kWaiting.shift();
+		if (this.#kWaiting.length === 0) {
+			this.emit('drain');
+		} else {
+			this.#kWaiting[0][kAcquire]();
+		}
 	}
 
 	lock() {
 		const usr = new PMutexUser(this);
+		this.#kWaiting.push(usr);
 
 		return usr[kAcquire]();
 	}
 }
 
-module.exports = PMutex;
+export {PMutex};

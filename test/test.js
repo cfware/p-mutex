@@ -1,7 +1,7 @@
 'use strict';
 
 import test from 'ava';
-import PMutex from '.';
+import {PMutex} from '..';
 
 test.beforeEach('create pMutex', t => {
 	t.context.pMutex = new PMutex();
@@ -67,6 +67,7 @@ test('two request happen in order', async t => {
 			setTimeout(() => {
 				lock.release();
 				t.is(drained, 1, 'drained now');
+				lock.release();
 				resolve();
 			}, 5);
 		});

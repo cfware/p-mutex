@@ -10,7 +10,8 @@ Promise based mutex
 
 ### Install @cfware/p-mutex
 
-This module requires node.js 4 or above.
+This module requires node.js 12 or above and ESM support (currently recommend using
+the `esm` module).
 
 ```sh
 npm i --save @cfware/p-mutex
@@ -19,21 +20,17 @@ npm i --save @cfware/p-mutex
 ## Usage
 
 ```js
-'use strict';
-
-const PMutex = require('@cfware/p-mutex');
+import {PMutex} from '@cfware/p-mutex';
 
 /* PMutex ignores any parameters. */
 const mutex = new PMutex();
 
-const serializedAsyncAction = async () => {
+export const serializedAsyncAction = async () => {
 	const lock = await mutex.lock();
 
 	/* Do some stuff, release the lock eventually. */
 	setTimeout(() => lock.release(), 10);
 }
-
-module.exports = serializedAsyncAction;
 ```
 
 This module does not provide timeout functionality.  `lock.release()` must be
@@ -41,7 +38,7 @@ called or the `mutex.lock()` will never resolve again.
 
 ## Running tests
 
-Tests are provided by eslint and mocha with coverage checking by nyc.
+Tests are provided by xo and ava with coverage checking by nyc.
 
 ```sh
 npm install
