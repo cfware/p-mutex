@@ -22,10 +22,6 @@
 		"async",
 		"sequence"
 	],
-	"files": [
-		"*.js",
-		"!nyc.config.js"
-	],
 	"bugs": {
 		"url": "https://github.com/cfware/p-mutex/issues"
 	},
