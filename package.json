@@ -28,27 +28,15 @@
 	},
 	"homepage": "https://github.com/cfware/p-mutex#readme",
 	"devDependencies": {
+		"@cfware/eslint-config-node": "^0.1.0",
 		"@cfware/nyc": "^0.5.0",
 		"ava": "^2.0.0",
-		"babel-eslint": "^10.0.1",
 		"esm": "^3.2.25",
 		"nyc": "^14.1.1",
 		"standard-version": "^6.0.1",
 		"xo": "^0.24.0"
 	},
 	"xo": {
-		"parser": "babel-eslint",
-		"env": {
-			"es6": true
-		},
-		"rules": {
-			"lines-between-class-members": [
-				"error",
-				"always",
-				{
-					"exceptAfterSingleLine": true
-				}
-			]
-		}
+		"extends": "@cfware/eslint-config-node"
 	}
 }

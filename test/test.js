@@ -1,7 +1,7 @@
 'use strict';
 
 import test from 'ava';
-import {PMutex} from '..';
+import {PMutex} from '../index.js';
 
 test.beforeEach('create pMutex', t => {
 	t.context.pMutex = new PMutex();
