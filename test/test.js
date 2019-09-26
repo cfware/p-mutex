@@ -1,5 +1,3 @@
-'use strict';
-
 import test from 'ava';
 import {PMutex} from '../index.js';
 
@@ -7,9 +5,11 @@ test.beforeEach('create pMutex', t => {
 	t.context.pMutex = new PMutex();
 });
 
-test('pMutex is an object', t => t.is(typeof t.context.pMutex, 'object'));
+test('pMutex is an object', t => {
+	t.is(typeof t.context.pMutex, 'object');
+	t.is(typeof t.context.pMutex.lock, 'function');
+});
 
-test('pMutex.lock is a function', t => t.is(typeof t.context.pMutex.lock, 'function'));
 test('pMutex.lock resolves', async t => {
 	await t.notThrowsAsync(t.context.pMutex.lock());
 });
