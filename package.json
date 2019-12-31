@@ -2,13 +2,14 @@
 	"name": "@cfware/p-mutex",
 	"version": "0.2.0",
 	"description": "Promise based mutex",
-	"main": "index.js",
+	"main": "index.mjs",
 	"scripts": {
 		"release": "standard-version --sign",
-		"test": "xo && nyc ava"
+		"pretest": "cfware-lint .",
+		"test": "c8 node test.mjs"
 	},
 	"engines": {
-		"nodejs": ">=12"
+		"nodejs": ">=13.2.0"
 	},
 	"repository": {
 		"type": "git",
@@ -28,15 +29,9 @@
 	},
 	"homepage": "https://github.com/cfware/p-mutex#readme",
 	"devDependencies": {
-		"@cfware/eslint-config-node": "^0.1.1",
-		"@cfware/nyc": "^0.6.0",
-		"ava": "^2.0.0",
-		"esm": "^3.2.25",
-		"nyc": "^15.0.0",
-		"standard-version": "^7.0.0",
-		"xo": "^0.25.3"
-	},
-	"xo": {
-		"extends": "@cfware/eslint-config-node"
+		"@cfware/lint": "^1.0.0",
+		"c8": "^7.0.0",
+		"libtap": "git://github.com/coreyfarrell/libtap#prefer-fs-rmdir-recursive",
+		"standard-version": "^7.0.0"
 	}
 }

@@ -10,8 +10,7 @@ Promise based mutex
 
 ### Install @cfware/p-mutex
 
-This module requires node.js 12 or above and ESM support (currently recommend using
-the `esm` module).
+This module requires node.js 13.2.0 or above.
 
 ```sh
 npm i --save @cfware/p-mutex
@@ -36,14 +35,6 @@ export const serializedAsyncAction = async () => {
 This module does not provide timeout functionality.  `lock.release()` must be
 called or the `mutex.lock()` will never resolve again.
 
-## Running tests
-
-Tests are provided by xo and ava with coverage checking by nyc.
-
-```sh
-npm install
-npm test
-```
 
 [npm-image]: https://img.shields.io/npm/v/@cfware/p-mutex.svg
 [npm-url]: https://npmjs.org/package/@cfware/p-mutex
