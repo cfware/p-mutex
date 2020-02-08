@@ -31,7 +31,7 @@
 	"devDependencies": {
 		"@cfware/lint": "^1.0.0",
 		"c8": "^7.0.0",
-		"libtap": "git://github.com/coreyfarrell/libtap#prefer-fs-rmdir-recursive",
+		"libtap": "^0.2.0",
 		"standard-version": "^7.0.0"
 	}
 }
