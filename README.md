@@ -1,6 +1,6 @@
 # @cfware/p-mutex
 
-[![Travis CI][travis-image]][travis-url]
+![Tests][tests-status]
 [![Greenkeeper badge](https://badges.greenkeeper.io/cfware/p-mutex.svg)](https://greenkeeper.io/)
 [![NPM Version][npm-image]][npm-url]
 [![NPM Downloads][downloads-image]][downloads-url]
@@ -38,8 +38,7 @@ called or the `mutex.lock()` will never resolve again.
 
 [npm-image]: https://img.shields.io/npm/v/@cfware/p-mutex.svg
 [npm-url]: https://npmjs.org/package/@cfware/p-mutex
-[travis-image]: https://travis-ci.org/cfware/p-mutex.svg?branch=master
-[travis-url]: https://travis-ci.org/cfware/p-mutex
+[tests-status]: https://github.com/cfware/p-mutex/workflows/Tests/badge.svg
 [downloads-image]: https://img.shields.io/npm/dm/@cfware/p-mutex.svg
 [downloads-url]: https://npmjs.org/package/@cfware/p-mutex
 [license-image]: https://img.shields.io/github/license/cfware/p-mutex.svg
