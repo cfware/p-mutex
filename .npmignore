@@ -1,7 +1,5 @@
 *.tgz
 nyc.config.cjs
-.nyc_output
 coverage
-package
 .github
 test.mjs

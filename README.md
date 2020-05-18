@@ -1,20 +1,6 @@
-# @cfware/p-mutex
-
-![Tests][tests-status]
-[![Greenkeeper badge](https://badges.greenkeeper.io/cfware/p-mutex.svg)](https://greenkeeper.io/)
-[![NPM Version][npm-image]][npm-url]
-[![NPM Downloads][downloads-image]][downloads-url]
-[![MIT][license-image]](LICENSE)
+# @cfware/p-mutex [![NPM Version][npm-image]][npm-url]
 
 Promise based mutex
-
-### Install @cfware/p-mutex
-
-This module requires node.js 13.2.0 or above.
-
-```sh
-npm i --save @cfware/p-mutex
-```
 
 ## Usage
 
@@ -38,7 +24,3 @@ called or the `mutex.lock()` will never resolve again.
 
 [npm-image]: https://img.shields.io/npm/v/@cfware/p-mutex.svg
 [npm-url]: https://npmjs.org/package/@cfware/p-mutex
-[tests-status]: https://github.com/cfware/p-mutex/workflows/Tests/badge.svg
-[downloads-image]: https://img.shields.io/npm/dm/@cfware/p-mutex.svg
-[downloads-url]: https://npmjs.org/package/@cfware/p-mutex
-[license-image]: https://img.shields.io/github/license/cfware/p-mutex.svg
